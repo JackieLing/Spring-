@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--管理DAO组件对象的创建-->
+    <bean id="aa" class="init.ClazzDaoImpl"/>
+
+    <!--管理Service组件-->
+    <bean id="clazzService" class="init.ClazzServiceImpl">
+        <!--
+            property作用:用来为类中的成员变量注入值
+            name作用：类中要注入的成员变量
+            ref作用：书写要注入的对象在工厂中的唯一标识
+        -->
+        <property name="clazzDao" ref="aa"/>
+    </bean>
+
+    <bean id="student" class="pojo.StudentImpl">
+        <property name="name" value="令狐"/>
+    </bean>
+
+    <bean id="car" class="construct.Car">
+        <constructor-arg value="Audi" type="java.lang.String"/>
+        <constructor-arg value="luntai" type="java.lang.String"/>
+        <constructor-arg value="30" type="java.lang.Double"/>
+    </bean>
+    <bean id="car1" class="construct.Car">
+        <constructor-arg value="Audi" type="java.lang.String"/>
+        <constructor-arg value="luntai" type="java.lang.String"/>
+        <constructor-arg value="300" type="int"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookDAO" class="autodi.BookDAOImpl"/>
+
+    <!--
+        autowrite的作用：用来指定当前组件中依赖的组件的注入方式是什么
+        注意：类中成员变量与工厂中bean的id一致则自动赋值，否则不注入
+        byname:根据类中的成员变量名进行注入
+        bytype:根据类中的成员变量类型进行注入
+    -->
+    <!--<bean id="bookService" class="autodi.BookServiceImpl" autowire="byName"/>-->
+    <!--
+        类中成员变量的类型与工厂中bean的类型一致则强行注入，否则不注入。
+    -->
+    <bean id="bookService" class="autodi.BookServiceImpl" autowire="byType"/>
+</beans>
