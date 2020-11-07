@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="calendar" class="com.linghu.factorybean.CalendarFactoryBean"/>
+
+    <!--管理SqlsessionFactory-->
+   <!-- <bean id="sqlSessionFactory" class="com.linghu.factorybean.SqlSessionFactoryBean">
+        <property name="configLocation" value="mybatis-config.xml"/>
+    </bean>-->
+
+    <!--创建数据源对象  druid c3p0 dbcp-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/2001"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <!--创建SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--依赖数据源对象-->
+        <property name="configLocation" ref="dataSource"/>
+        <!--依赖mapper文件注册-->
+    </bean>
+
+
+
+</beans>
