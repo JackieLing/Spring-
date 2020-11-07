@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.linghu.test.entity"/>
+    </typeAliases>
+
+    <mappers>
+        <package name="com.linghu.test.dao"/>
+    </mappers>
+
+</configuration>
